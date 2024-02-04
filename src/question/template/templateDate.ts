@@ -8,6 +8,7 @@ export const templateList: TemplateList[] = [
     value: {
       type: 'unibest',
       url: {
+        gitee: 'https://gitee.com/codercup/hello-unibest.git',
         github: 'https://github.com/codercup/hello-unibest.git',
       },
     },
@@ -18,6 +19,7 @@ export const templateList: TemplateList[] = [
     value: {
       type: 'unibest simple',
       url: {
+        gitee: 'https://gitee.com/codercup/unibest.git',
         github: 'https://github.com/codercup/unibest.git',
       },
     },
