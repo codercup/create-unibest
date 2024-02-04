@@ -26,8 +26,7 @@
     "create-unibest": "outfile.cjs"
   },
   "files": [
-    "outfile.cjs",
-    "template"
+    "outfile.cjs"
   ],
   "scripts": {
     "build": "node scripts/build.js",
