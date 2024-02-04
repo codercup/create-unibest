@@ -8,7 +8,7 @@ import {
   unlinkSync,
   writeFileSync,
 } from 'node:fs'
-import { join, resolve } from 'node:path'
+import { join } from 'node:path'
 import process from 'node:process'
 import ejs from 'ejs'
 import { bold, red } from 'kolorist'
@@ -27,7 +27,6 @@ import {
   preOrderDirectoryTraverse,
   printBanner,
   printFinish,
-  renderTemplate,
   replaceProjectName,
 } from './utils'
 import { postOrderDirectoryTraverse } from './utils/directoryTraverse'

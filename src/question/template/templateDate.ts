@@ -1,4 +1,4 @@
-import { dim, green, link } from 'kolorist'
+import { green } from 'kolorist'
 import type { TemplateList } from './type'
 
 export const templateList: TemplateList[] = [
