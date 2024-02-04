@@ -4,7 +4,6 @@ import {
   existsSync,
   mkdirSync,
   readFileSync,
-  renameSync,
   rmdirSync,
   unlinkSync,
   writeFileSync,
@@ -18,9 +17,6 @@ import prompts from 'prompts'
 import figures from 'prompts/lib/util/figures.js'
 import { question } from './question'
 import filePrompt from './question/file'
-import { UIList } from './question/UI/choices'
-import PLUGINS from './question/plugin/choices'
-import MODULES from './question/module/choices'
 import { templateList } from './question/template/templateDate'
 import type { BaseTemplateList } from './question/template/type'
 import type { Ora } from './utils'
@@ -43,11 +39,6 @@ async function init() {
   const argv = minimist(process.argv.slice(2), {
     alias: {
       templateType: ['t'],
-      needsTypeScript: ['ts'],
-      pluginList: ['p'],
-      moduleList: ['m'],
-      UIName: ['ui', 'u'],
-      needsEslint: ['eslint', 'e'],
     },
     string: ['_'],
   })
@@ -57,11 +48,6 @@ async function init() {
     projectName?: string
     shouldOverwrite?: boolean
     templateType?: BaseTemplateList['value']
-    needsTypeScript?: boolean
-    pluginList?: string[]
-    moduleList?: string[]
-    UIName?: string | null
-    needsEslint?: boolean
   } = {}
 
   if (!projectName) {
@@ -76,33 +62,11 @@ async function init() {
   }
   else {
     const templateType = templateList.find(item => item.value.type === argv?.t)?.value
-    const UIName = UIList.find(item => item.value === argv.UIName)?.value
     if (!templateType && argv?.templateType) {
       // eslint-disable-next-line no-console
       console.log(`${red(figures.cross)} ${bold(`未获取到${templateType}模板`)}`)
       process.exit(1)
     }
-    if (!UIName && argv?.UIName) {
-      // eslint-disable-next-line no-console
-      console.log(`${red(figures.cross)} ${bold(`未获取到${UIName}UI库`)}`)
-      process.exit(1)
-    }
-    const pluginList = [argv['pluginList'!]].flat()
-    pluginList.forEach((item) => {
-      if (!PLUGINS.some(plugin => plugin.value === item)) {
-        // eslint-disable-next-line no-console
-        console.log(`${red(figures.cross)} ${bold(`未获取到${item}插件`)}`)
-        process.exit(1)
-      }
-    })
-    const moduleList = [argv['moduleList'!]].flat()
-    moduleList.forEach((item) => {
-      if (!MODULES.some(module => module.value === item)) {
-        // eslint-disable-next-line no-console
-        console.log(`${red(figures.cross)} ${bold(`未获取到${item}库`)}`)
-        process.exit(1)
-      }
-    })
 
     result = {
       projectName,
@@ -110,11 +74,6 @@ async function init() {
         ? true
         : (await prompts(filePrompt(projectName))).shouldOverwrite,
       templateType: templateType || <BaseTemplateList['value']>{ type: 'custom' },
-      needsTypeScript: argv['needsTypeScript'!],
-      pluginList,
-      moduleList,
-      UIName: argv['UIName'!],
-      needsEslint: argv['needsEslint'!],
     }
   }
 
@@ -160,38 +119,6 @@ async function init() {
   // Render templates
   render('base')
 
-  const needUnocss = result.moduleList?.includes('unocss') || result.UIName === 'ano'
-
-  // Render Config
-  const config = {
-    typescript: result.needsTypeScript,
-    lint: result.needsEslint,
-  }
-
-  for (const [key, needs] of Object.entries(config)) {
-    if (needs)
-      render(`config/${key}`)
-  }
-
-  // Render Plugins
-  result.pluginList?.forEach(plugin => render(`plugin/${plugin}`))
-
-  // Render modules
-  result.moduleList?.forEach(module => render(`module/${module}`))
-  if (needUnocss && !result.moduleList?.includes('unocss'))
-    render('module/unocss')
-
-  // Render UI
-  const UI = {
-    unocss: needUnocss,
-    [result.UIName!]: Boolean(result.UIName),
-  }
-
-  for (const [key, needs] of Object.entries(UI)) {
-    if (needs)
-      render(`UI/${key}`)
-  }
-
   const dataStore: Record<string, any> = {}
   // Process callbacks
   for (const cb of callbacks)
@@ -212,50 +139,6 @@ async function init() {
     },
   )
 
-  if (result.needsTypeScript) {
-    preOrderDirectoryTraverse(
-      root,
-      () => {},
-      (filepath) => {
-        // Rename `.js` to `.ts`
-        if (filepath.endsWith('.js') && !filepath.endsWith('eslint.config.js')) {
-          const tsFilePath = filepath.replace(/\.js$/, '.ts')
-          if (existsSync(tsFilePath))
-            unlinkSync(filepath)
-
-          else
-            renameSync(filepath, tsFilePath)
-        }
-        // Rename 'jsconfig.json' to 'tsconfig.json
-        else if (filepath.endsWith('jsconfig.json')) {
-          const tsFilePath = filepath.replace('jsconfig.json', 'tsconfig.json')
-          if (existsSync(tsFilePath))
-            unlinkSync(filepath)
-
-          else
-            renameSync(filepath, tsFilePath)
-        }
-      },
-    )
-
-    // Rename entry in `index.html`
-    const indexHtmlPath = resolve(root, 'index.html')
-    const indexHtmlContent = readFileSync(indexHtmlPath, 'utf8')
-    writeFileSync(indexHtmlPath, indexHtmlContent.replace('src/main.js', 'src/main.ts'))
-
-    // Rename <script setup> To <script setup lang="ts">
-    preOrderDirectoryTraverse(
-      resolve(root, 'src'),
-      () => {},
-      (filepath) => {
-        if (filepath.endsWith('.vue')) {
-          const vueContent = readFileSync(filepath, 'utf8')
-          const vueContentWithTs = vueContent.replace('<script setup>', '<script setup lang="ts">')
-          writeFileSync(filepath, vueContentWithTs)
-        }
-      },
-    )
-  }
   replaceProjectName(root, result.projectName!)
 
   printFinish(root, cwd, packageManager, loading)
