@@ -3,7 +3,7 @@ import { lightCyan } from 'kolorist'
 
 /* eslint-disable no-console */
 export function printBanner() {
-  const text = 'Uni-creator - 快速创建 uni-app 项目'
+  const text = 'Unibest-creator - 快速创建 unibest(uni-app) 项目'
   let colorText = ''
 
   const startColor = { r: 0x3B, g: 0xD1, b: 0x91 }

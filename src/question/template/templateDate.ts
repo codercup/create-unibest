@@ -4,7 +4,7 @@ import type { TemplateList } from './type'
 export const templateList: TemplateList[] = [
   {
     title: `unibest${green('(推荐)')}`,
-    description: `unibest 多个TAB的完整项目`,
+    description: `多个TAB的完整项目`,
     value: {
       type: 'unibest',
       url: {
@@ -14,7 +14,7 @@ export const templateList: TemplateList[] = [
   },
   {
     title: `unibest simple`,
-    description: `unibest 单个TAB的简单项目`,
+    description: `单个TAB的简单项目`,
     value: {
       type: 'unibest simple',
       url: {
