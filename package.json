@@ -1,28 +1,29 @@
 {
-  "name": "create-uni",
+  "name": "create-unibest",
   "type": "module",
   "version": "1.0.0",
-  "packageManager": "pnpm@8.6.12",
-  "description": "An easy way to start a uni-app project",
-  "author": "FliPPeDround <flippedround@qq.com>",
+  "packageManager": "pnpm@8.15.1",
+  "description": "An easy way to start a unibest project",
+  "author": "菲鸽 <1020103647@qq.com>",
   "license": "MIT",
-  "homepage": "https://github.com/uni-helper/create-uni#readme",
+  "homepage": "https://github.com/codercup/create-unibest#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/uni-helper/create-uni.git"
+    "url": "git+https://github.com/codercup/create-unibest.git"
   },
-  "bugs": "https://github.com/uni-helper/create-uni/issues",
+  "bugs": "https://github.com/codercup/create-unibest/issues",
   "keywords": [
     "uni",
     "uni-app",
-    "create-uni",
+    "unibest",
+    "create-unibest",
     "cli",
     "vue",
     "miniapp"
   ],
   "sideEffects": false,
   "bin": {
-    "create-uni": "outfile.cjs"
+    "create-unibest": "outfile.cjs"
   },
   "files": [
     "outfile.cjs",
