@@ -26,8 +26,8 @@ jobs:
 
       - name: Commit and push if changes are made
         run: |
-          git config --global user.email "734243792@qq.com"
-          git config --global user.name "FliPPeDround"
+          git config --global user.email "1020103647@qq.com"
+          git config --global user.name "菲鸽"
           git add -A
           git commit -m "chore: update deps" || echo "No changes to commit"
 
