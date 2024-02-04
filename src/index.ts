@@ -107,17 +107,8 @@ async function init() {
     return
   }
 
-  const templateRoot = resolve(__dirname, 'template')
-
   type Callback = (dataStore: Record<string, any>) => void
   const callbacks: Callback[] = []
-  function render(templateName: string) {
-    const templateDir = resolve(templateRoot, templateName)
-    renderTemplate(templateDir, root, callbacks)
-  }
-
-  // Render templates
-  render('base')
 
   const dataStore: Record<string, any> = {}
   // Process callbacks

@@ -8,20 +8,20 @@ export const templateList: TemplateList[] = [
     value: {
       type: 'unibest',
       url: {
-        gitee: 'https://gitee.com/codercup/hello-unibest.git',
-        github: 'https://github.com/codercup/hello-unibest.git',
-      },
-    },
-  },
-  {
-    title: `unibest simple`,
-    description: `单个TAB的简单项目`,
-    value: {
-      type: 'unibest simple',
-      url: {
         gitee: 'https://gitee.com/codercup/unibest.git',
         github: 'https://github.com/codercup/unibest.git',
       },
     },
   },
+  // {
+  //   title: `unibest simple`,
+  //   description: `单个TAB的简单项目`,
+  //   value: {
+  //     type: 'unibest simple',
+  //     url: {
+  //       gitee: 'https://gitee.com/codercup/unibest.git',
+  //       github: 'https://github.com/codercup/unibest.git',
+  //     },
+  //   },
+  // },
 ]
