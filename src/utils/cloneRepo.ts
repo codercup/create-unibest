@@ -12,13 +12,17 @@ async function removeGitFolder(localPath: string): Promise<void> {
   await fs.rm(gitFolderPath, { recursive: true, force: true })
 }
 
-async function cloneRepo(gitUrls: string[], localPath: string): Promise<void> {
+async function cloneRepo(gitUrls: string[], branch: string, localPath: string): Promise<void> {
   let lastError = null
 
   for (const gitUrl of gitUrls) {
     try {
       await new Promise<void>((resolve, reject) => {
-        exec(`git clone ${gitUrl} ${localPath}`, async (error) => {
+        const execStr = `git clone -b ${branch} ${gitUrl} ${localPath}`
+        // const execStr = `npx degit codercup/unibest#${branch}`
+        console.log('execStr->', execStr)
+
+        exec(execStr, async (error) => {
           if (error) {
             reject(error)
             return
@@ -46,8 +50,7 @@ async function cloneRepo(gitUrls: string[], localPath: string): Promise<void> {
 
 function getRepoUrlList(url: BaseTemplateList['value']['url']) {
   const { github, gitee } = url
-  // 返回一个数组优先使用 gitee，没有则使用 github的镜像地址githubfast.com，最后使用 github
-  return [gitee, github?.replace('github.com', 'githubfast.com'), github].filter(Boolean) as string[]
+  return [gitee, github].filter(Boolean) as string[]
 }
 
 export async function dowloadTemplate(data: BaseTemplateList['value'], name: string, root: string, loading: Ora) {
@@ -55,7 +58,8 @@ export async function dowloadTemplate(data: BaseTemplateList['value'], name: str
   console.log(`${green('获取到的仓库url:')} ${repoUrlList}`)
 
   try {
-    await cloneRepo(repoUrlList, root)
+    // 如果填了branch则用对应的branch，否则使用主分支
+    await cloneRepo(repoUrlList, data.branch || 'main', root)
   }
   catch {
     loading.fail(`${bold('模板创建失败！')}`)

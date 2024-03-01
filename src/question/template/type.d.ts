@@ -21,6 +21,12 @@ interface BaseTemplateList {
      */
     type: string
     /**
+     * 仓库分支，不填的话为主分支
+     * @property {string} branch - 仓库分支
+     *
+     */
+    branch?: string
+    /**
      * 模板地址 github和gitee地址至少存在一个
      * @property {string} github - github地址
      * @property {string} gitee - gitee地址
