@@ -2,7 +2,7 @@ import { exec } from 'node:child_process'
 import { promises as fs } from 'node:fs'
 import { join } from 'node:path'
 import process from 'node:process'
-import { bold } from 'kolorist'
+import { bold, green } from 'kolorist'
 import type { BaseTemplateList } from '../question/template/type'
 import type { Ora } from './loading'
 import { replaceProjectName } from './setPackageName'
@@ -52,6 +52,8 @@ function getRepoUrlList(url: BaseTemplateList['value']['url']) {
 
 export async function dowloadTemplate(data: BaseTemplateList['value'], name: string, root: string, loading: Ora) {
   const repoUrlList = getRepoUrlList(data.url)
+  console.log(`${green('获取到的仓库url:')} ${repoUrlList}`)
+
   try {
     await cloneRepo(repoUrlList, root)
   }

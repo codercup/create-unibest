@@ -11,7 +11,7 @@ import {
 import { join } from 'node:path'
 import process from 'node:process'
 import ejs from 'ejs'
-import { bold, red } from 'kolorist'
+import { bold, green, red } from 'kolorist'
 import minimist from 'minimist'
 import prompts from 'prompts'
 import figures from 'prompts/lib/util/figures.js'
@@ -54,7 +54,7 @@ async function init() {
       result = await question()
     }
     catch (cancelled) {
-    // eslint-disable-next-line no-console
+      // eslint-disable-next-line no-console
       console.log((<{ message: string }>cancelled).message)
       process.exit(1)
     }
@@ -66,6 +66,7 @@ async function init() {
       console.log(`${red(figures.cross)} ${bold(`未获取到${templateType}模板`)}`)
       process.exit(1)
     }
+    console.log(`${green(figures.cross)} ${bold(`已经获取到${templateType}模板`)}`)
 
     result = {
       projectName,
@@ -116,7 +117,7 @@ async function init() {
 
   preOrderDirectoryTraverse(
     root,
-    () => {},
+    () => { },
     (filepath) => {
       if (filepath.endsWith('.ejs')) {
         const template = readFileSync(filepath, 'utf-8')
