@@ -1,11 +1,11 @@
-import { green } from 'kolorist'
+import { green, red } from 'kolorist'
 import type { TemplateList } from './type'
 
 export const templateList: TemplateList[] = [
 
   {
     title: `base${green('(推荐)')}`,
-    description: `多TAB项目`,
+    description: `${red('(多TAB base项目)')}`,
     value: {
       type: 'unibest base',
       branch: 'base',
@@ -17,7 +17,7 @@ export const templateList: TemplateList[] = [
   },
   {
     title: `demo${green('(演示项目)')}`,
-    description: `多TAB演示项目`,
+    description: `${red('(多TAB演示项目)')}`,
     value: {
       type: 'unibest demo',
       branch: 'demo',
@@ -28,8 +28,8 @@ export const templateList: TemplateList[] = [
     },
   },
   {
-    title: `i18n`,
-    description: `多TAB多语言项目`,
+    title: `i18n${green('(多语言)')}`,
+    description: `${red('(多TAB多语言项目)')}`,
     value: {
       type: 'unibest base+i18n',
       branch: 'i18n',

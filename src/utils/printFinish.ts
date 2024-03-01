@@ -15,10 +15,10 @@ export function printFinish(
   if (root !== cwd) {
     const cdProjectName = relative(cwd, root)
     console.log(
-    `  ${bold(green(`cd ${cdProjectName.includes(' ') ? `"${cdProjectName}"` : cdProjectName}`))}`,
+      `  ${bold(green(`cd ${cdProjectName.includes(' ') ? `"${cdProjectName}"` : cdProjectName}`))}`,
     )
   }
-  console.log(`  ${bold(green(getCommand(packageManager, 'install')))}`)
+  console.log(`  ${bold(green(getCommand(packageManager, 'i')))}`)
   console.log(`  ${bold(green(getCommand(packageManager, 'dev')))}`)
   console.log()
 }

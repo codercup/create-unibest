@@ -2,7 +2,7 @@ import { exec } from 'node:child_process'
 import { promises as fs } from 'node:fs'
 import { join } from 'node:path'
 import process from 'node:process'
-import { bold, green } from 'kolorist'
+import { bold, green, red } from 'kolorist'
 import type { BaseTemplateList } from '../question/template/type'
 import type { Ora } from './loading'
 import { replaceProjectName } from './setPackageName'
@@ -20,19 +20,22 @@ async function cloneRepo(gitUrls: string[], branch: string, localPath: string): 
       await new Promise<void>((resolve, reject) => {
         const execStr = `git clone -b ${branch} ${gitUrl} ${localPath}`
         // const execStr = `npx degit codercup/unibest#${branch}`
-        console.log('execStr->', execStr)
+        // console.log(`${green('execStr:')} ${execStr}`)
 
         exec(execStr, async (error) => {
           if (error) {
+            console.error(`${red('exec error:')} ${error}`)
             reject(error)
             return
           }
 
           try {
+            // console.log(`${green('removeGitFolder')} ${localPath}`)
             await removeGitFolder(localPath)
             resolve()
           }
           catch (error) {
+            // console.error(`${red('removeGitFolder error:')} ${error}`)
             reject(error)
           }
         })
@@ -40,6 +43,7 @@ async function cloneRepo(gitUrls: string[], branch: string, localPath: string): 
       return
     }
     catch (error) {
+      console.error(`${red('cloneRepo error:')} ${error}`)
       lastError = error
     }
   }
@@ -55,13 +59,13 @@ function getRepoUrlList(url: BaseTemplateList['value']['url']) {
 
 export async function dowloadTemplate(data: BaseTemplateList['value'], name: string, root: string, loading: Ora) {
   const repoUrlList = getRepoUrlList(data.url)
-  console.log(`${green('获取到的仓库url:')} ${repoUrlList}`)
+  // console.log(`${green('获取到的仓库url:')} ${repoUrlList}`)
 
   try {
     // 如果填了branch则用对应的branch，否则使用主分支
     await cloneRepo(repoUrlList, data.branch || 'main', root)
   }
-  catch {
+  catch (error) {
     loading.fail(`${bold('模板创建失败！')}`)
     process.exit(1)
   }

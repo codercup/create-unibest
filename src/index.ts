@@ -80,8 +80,11 @@ async function init() {
   loading = ora(`${bold('正在创建模板...')}`).start()
   const cwd = process.cwd()
   const root = join(cwd, result.projectName!)
-  const userAgent = process.env.npm_config_user_agent ?? ''
-  const packageManager = /pnpm/.test(userAgent) ? 'pnpm' : /yarn/.test(userAgent) ? 'yarn' : 'npm'
+  // const userAgent = process.env.npm_config_user_agent ?? ''
+  // console.log('\nuserAgent:', userAgent)
+
+  // const packageManager = /pnpm/.test(userAgent) ? 'pnpm' : /yarn/.test(userAgent) ? 'yarn' : 'npm'
+  const packageManager = 'pnpm'
 
   function emptyDir(dir: string) {
     if (!existsSync(dir))
@@ -114,21 +117,6 @@ async function init() {
   // Process callbacks
   for (const cb of callbacks)
     await cb(dataStore)
-
-  preOrderDirectoryTraverse(
-    root,
-    () => { },
-    (filepath) => {
-      if (filepath.endsWith('.ejs')) {
-        const template = readFileSync(filepath, 'utf-8')
-        const dest = filepath.replace(/\.ejs$/, '')
-        const content = ejs.render(template, dataStore[dest])
-
-        writeFileSync(dest, content)
-        unlinkSync(filepath)
-      }
-    },
-  )
 
   replaceProjectName(root, result.projectName!)
 
