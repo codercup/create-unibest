@@ -5,6 +5,25 @@
 - 查看全局软连 `npm ls -g`
 - 删除本项目的软连 `npm un create-unibest -g`
 
+## git clone
+
+```sh
+git clone repoUrl
+git clone -b <branch_name> repoUrl
+```
+
+## degit
+
+[degit 文档](https://github.com/Rich-Harris/degit)
+
+degit user/repo
+
+```sh
+degit github:user/repo
+degit <git@github.com>:user/repo
+degit <https://github.com/user/repo>
+```
+
 degit 某个分支
 
 ```sh
