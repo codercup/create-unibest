@@ -3,15 +3,12 @@
 import {
   existsSync,
   mkdirSync,
-  readFileSync,
   rmdirSync,
   unlinkSync,
-  writeFileSync,
 } from 'node:fs'
 import { join } from 'node:path'
 import process from 'node:process'
-import ejs from 'ejs'
-import { bold, green, red } from 'kolorist'
+import { bold, red } from 'kolorist'
 import minimist from 'minimist'
 import prompts from 'prompts'
 import figures from 'prompts/lib/util/figures.js'
@@ -24,7 +21,6 @@ import {
   canSkipEmptying,
   dowloadTemplate,
   ora,
-  preOrderDirectoryTraverse,
   printBanner,
   printFinish,
   replaceProjectName,
@@ -66,7 +62,6 @@ async function init() {
       console.log(`${red(figures.cross)} ${bold(`未获取到${templateType}模板`)}`)
       process.exit(1)
     }
-    console.log(`${green(figures.cross)} ${bold(`已经获取到${templateType}模板`)}`)
 
     result = {
       projectName,
