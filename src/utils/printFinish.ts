@@ -20,5 +20,6 @@ export function printFinish(
   }
   console.log(`  ${bold(green(getCommand(packageManager, 'i')))}`)
   console.log(`  ${bold(green(getCommand(packageManager, 'dev')))}`)
+  console.log(`  ${bold(green('切记！执行完 pnpm dev 之后，再开始第一次 git commit，否则报错！'))}`)
   console.log()
 }
