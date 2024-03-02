@@ -16,7 +16,7 @@ interface BaseTemplateList {
   value: {
     /**
      * 模板类型 不能为custom
-     * @property {string} type - 模板类型
+     * @property {string} type - 模板类型，用于 `pnpm create unibest xx -t yy` 里面的 `yy`
      *
      */
     type: string

@@ -7,7 +7,7 @@ export const templateList: TemplateList[] = [
     title: `base${green('(推荐)')}`,
     description: `${red('(多TAB base项目)')}`,
     value: {
-      type: 'unibest base',
+      type: 'base',
       branch: 'base',
       url: {
         gitee: 'https://gitee.com/codercup/unibest.git',
@@ -19,7 +19,7 @@ export const templateList: TemplateList[] = [
     title: `demo${green('(演示项目)')}`,
     description: `${red('(多TAB演示项目)')}`,
     value: {
-      type: 'unibest demo',
+      type: 'demo',
       branch: 'demo',
       url: {
         gitee: 'https://gitee.com/codercup/unibest.git',
@@ -31,7 +31,7 @@ export const templateList: TemplateList[] = [
     title: `i18n${green('(多语言)')}`,
     description: `${red('(多TAB多语言项目)')}`,
     value: {
-      type: 'unibest base+i18n',
+      type: 'i18n',
       branch: 'i18n',
       url: {
         gitee: 'https://gitee.com/codercup/unibest.git',

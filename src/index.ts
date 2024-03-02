@@ -48,6 +48,19 @@ async function init() {
   if (!projectName) {
     try {
       result = await question()
+      // console.log(`${red('没有项目名时的result: ')}`)
+      // console.log(result)
+      // {
+      //   projectName: 'u8',
+      //     templateType: {
+      //        type: 'base',
+      //        branch: 'base',
+      //        url: {
+      //           gitee: 'https://gitee.com/codercup/unibest.git',
+      //           github: 'https://github.com/codercup/unibest.git'
+      //     }
+      //   }
+      // }
     }
     catch (cancelled) {
       // eslint-disable-next-line no-console
@@ -57,19 +70,37 @@ async function init() {
   }
   else {
     const templateType = templateList.find(item => item.value.type === argv?.t)?.value
+
     if (!templateType && argv?.templateType) {
       // eslint-disable-next-line no-console
-      console.log(`${red(figures.cross)} ${bold(`未获取到${templateType}模板`)}`)
+      console.log(`${red(figures.cross)} ${bold(`未获取到${argv?.templateType}模板`)}`)
       process.exit(1)
+    }
+    const onCancel = () => {
+      throw new Error(`${red(figures.cross)} ${bold('操作已取消')}`)
     }
 
     result = {
       projectName,
       shouldOverwrite: canSkipEmptying(projectName)
         ? true
-        : (await prompts(filePrompt(projectName))).shouldOverwrite,
-      templateType: templateType || <BaseTemplateList['value']>{ type: 'custom' },
+        : (await prompts(filePrompt(projectName), { onCancel })).shouldOverwrite,
+      templateType: templateType || {
+        type: 'base',
+        branch: 'base',
+        url: {
+          gitee: 'https://gitee.com/codercup/unibest.git',
+          github: 'https://github.com/codercup/unibest.git',
+        },
+      },
     }
+    // console.log(`${red('有项目名时的result: ')}`)
+    // console.log(result)
+    // {
+    //   projectName: 'u7',
+    //   shouldOverwrite: true,
+    //   templateType: { type: 'custom' }
+    // }
   }
 
   loading = ora(`${bold('正在创建模板...')}`).start()
