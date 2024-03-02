@@ -1,27 +1,23 @@
 
-<h1 align="center">✨💚create uni💚✨</h1>
+<h1 align="center">✨create unibest✨</h1>
 
 <p align="center">
-    <a href="https://github.com/uni-helper/create-uni/stargazers"><img src="https://img.shields.io/github/stars/uni-helper/create-uni?colorA=363a4f&colorB=b7bdf8&style=for-the-badge"></a>
-    <a href="https://www.npmjs.com/package/create-uni"><img src="https://img.shields.io/npm/dm/create-uni?colorA=363a4f&colorB=f5a97f&style=for-the-badge"></a>
-    <a href="https://www.npmjs.com/package/create-uni"><img src="https://img.shields.io/npm/v/create-uni?colorA=363a4f&colorB=a6da95&style=for-the-badge"></a>
+    <a href="https://www.npmjs.com/package/create-unibest"><img src="https://img.shields.io/npm/dm/create-unibest?colorA=363a4f&colorB=f5a97f&style=for-the-badge"></a>
+    <a href="https://www.npmjs.com/package/create-unibest"><img src="https://img.shields.io/npm/v/create-unibest?colorA=363a4f&colorB=a6da95&style=for-the-badge"></a>
 </p>
 
 <h2 align="center">
-<sub>>_ Easy to use create uni▌</sub>
+<sub>>_ Easy to use create unibest▌</sub>
 </h2>
 
 # 📦 使用
 
 ```shell
-# npm
-    npm create uni@latest
-
-# yarn
-    yarn create uni
-
 # pnpm
-    pnpm create uni
+    pnpm create unibest
+
+# npm
+    npm create unibest@latest
 ```
 
 > [!TIP]
@@ -29,68 +25,16 @@
 
 ## 📖 介绍
 
-`create-uni` 是一个用于快速创建 uni-app 项目的轻量脚手架工具，它可以帮助你快速创建一个基于`vite`和`vue3`的`uni-app`项目，同时提供了一些模板供你选择。
-
-<p align="center"><img  src=".github/image/demo.png"></p>
+`create-unibest` 是一个用于快速创建 `uni-app` 项目的轻量脚手架工具，它可以帮助你快速创建一个基于 `vite` 和 `vue3` 的 `uni-app` 项目，同时提供了一些模板供你选择。
 
 ## 🚤 快速使用
 
 ```shell
-npm create uni <项目名称> --ts -m pinia -m uniUse -u ano -e
+pnpm create uni <项目名称> -t <模板>
 ```
 
-### 参数说明
+目前支持 `base`、`demo`、`i18n` 三种模板。
 
-| 配置项 | 参数 | 别名 | 可选值 |
-|  :---: | :---: | :---: | :---: |
-| Template | —— | t | vitesse |
-| TypeScript | ts | —— | —— |
-| Plugin | pluginList | p | 见[插件列表](#插件列表) |
-| Module | moduleList | m | 见[模块列表](#模块列表) |
-| UI | ui | u | uni/ano |
-| Eslint | eslint | -e | —— |
-
-#### 📦插件列表
-
-| 插件名 | 描述 | 参数名 |
-| :---: | :---: | :---: |
-| [vite-plugin-uni-components](https://github.com/uni-helper/vite-plugin-uni-components) | 按需自动引入组件 | import |
-| [vite-plugin-uni-pages](https://github.com/uni-helper/vite-plugin-uni-pages) | 提供基于文件系统的路由 | pages |
-| [vite-plugin-uni-layouts](https://github.com/uni-helper/vite-plugin-uni-layouts) | 提供类 nuxt 的 layouts 系统 | layouts |
-| [vite-plugin-uni-manifest](https://github.com/uni-helper/vite-plugin-uni-manifest) | 自动生成 manifest.json 文件 | manifest |
-| [vite-plugin-uni-platform](https://github.com/uni-helper/vite-plugin-uni-platform) | 基于文件名 (*.<h5\|mp-weixin\|app>.*) 的按平台编译插件 | filePlatform |
-| [vite-plugin-uni-platform-modifier](https://github.com/uni-helper/vite-plugin-uni-platform-modifier) | 为属性、指令提供平台修饰符并按需编译 | platformModifier |
-| [vite-plugin-uni-middleware](https://github.com/uni-helper/vite-plugin-uni-middleware) | 使用路由中间件 | middleware |
-
-#### 📦模块列表
-
-| 模块名 | 描述 | 参数名 |
-| :---: | :---: | :---: |
-| [pinia](https://github.com/vuejs/pinia) | 符合直觉的 Vue.js 状态管理库 | pinia |
-| [unocss](https://github.com/antfu/unocss) | 即时按需的原子级 CSS 引擎 | unocss |
-| [uni-network](https://github.com/uni-helper/uni-network) | 为 uni-app 打造的基于 Promise 的网络请求库 | uniNetwork |
-| [uni-use](https://github.com/uni-helper/uni-use) | uni-app 组合式工具集 | uniUse |
-| [uni-promises](https://github.com/uni-helper/uni-promises) | 为 uni-app 提供的 Promise 包装器 | uniPromises |
-
-## 🤝 参与贡献
-
-- 提交新功能
-- 解决[`issues`](https://github.com/uni-helper/create-uni/issues)
-- 提交新[`模板`](./src/question/template/)/[`Plugin`](./src/question/plugin/choices.ts)/[`module`](./src/question/module/choices.ts)/[`UI`](./src/question/UI/)
-
-## 🌸 感谢
-
-项目灵感及部分代码来自 [create-vue](https://github.com/vuejs/create-vue)
-
-## 📄 License
-
-[MIT LICENSE](./LICENSE)
-
-## [Sponsors](https://github.com/FliPPeDround/sponsors)
-
-<p align="center">
-  <a href="https://cdn.jsdelivr.net/gh/FliPPeDround/sponsors/sponsorkit/sponsors.svg">
-    <img alt="sponsors" src="https://cdn.jsdelivr.net/gh/FliPPeDround/sponsors/sponsorkit/sponsors.svg"/>
-  </a>
-</p>
-
+- 如果想学习所有的 `demo`，可以通过 `pnpm create unibest my-unibest -t demo` 生成。(包含了所有的 `demo` 和 `i18n` 代码)
+- 如果是新开发一个项目，建议使用 `base` 模板，可以通过 `pnpm create unibest my-unibest -t base` 生成。（不含 `demo` 代码）
+- 如果项目有多语言需求，建议使用 `i18n` 模板，可以通过 `pnpm create unibest my-unibest -t i18n` 生成。（不含 `demo` 代码）
