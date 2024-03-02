@@ -76,15 +76,28 @@ async function init() {
       console.log(`${red(figures.cross)} ${bold(`未获取到${argv?.templateType}模板`)}`)
       process.exit(1)
     }
-    const onCancel = () => {
-      throw new Error(`${red(figures.cross)} ${bold('操作已取消')}`)
-    }
 
+    const pp = async () => {
+      const onCancel = () => {
+        throw new Error(`${red(figures.cross)} ${bold('操作已取消')}`)
+      }
+      const step1 = filePrompt(projectName)
+      try {
+        const step2 = await prompts(step1, { onCancel })
+        return step2.shouldOverwrite
+      }
+      catch (error) {
+        // eslint-disable-next-line no-console
+        console.log(`${red(figures.cross)} ${bold('操作已取消')}`)
+        // 既然操作已经取消那就退出呀！
+        process.exit(1)
+      }
+    }
     result = {
       projectName,
       shouldOverwrite: canSkipEmptying(projectName)
         ? true
-        : (await prompts(filePrompt(projectName), { onCancel })).shouldOverwrite,
+        : await pp(),
       templateType: templateType || {
         type: 'base',
         branch: 'base',

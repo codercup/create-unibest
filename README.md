@@ -33,7 +33,13 @@
 pnpm create uni <项目名称> -t <模板>
 ```
 
-目前支持 `base`、`demo`、`i18n` 三种模板。
+目前支持 `base`、`i18n`、`demo`三种模板。
+
+```sh
+pnpm create unibest my-unibest -t base # 基础模板
+pnpm create unibest my-unibest -t i18n # 多语言模板
+pnpm create unibest my-unibest -t demo # 所有demo的模板，还包含了i18n
+```
 
 - 如果想学习所有的 `demo`，可以通过 `pnpm create unibest my-unibest -t demo` 生成。(包含了所有的 `demo` 和 `i18n` 代码)
 - 如果是新开发一个项目，建议使用 `base` 模板，可以通过 `pnpm create unibest my-unibest -t base` 生成。（不含 `demo` 代码）
