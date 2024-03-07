@@ -62,8 +62,8 @@ export async function dowloadTemplate(data: BaseTemplateList['value'], name: str
   // console.log(`${green('获取到的仓库url:')} ${repoUrlList}`)
 
   try {
-    // 如果填了branch则用对应的branch，否则使用主分支
-    await cloneRepo(repoUrlList, data.branch || 'main', root)
+    // 如果填了branch则用对应的branch，否则使用 base， base 分支才是开发最需要的
+    await cloneRepo(repoUrlList, data.branch || 'base', root)
   }
   catch (error) {
     loading.fail(`${bold('模板创建失败！')}`)

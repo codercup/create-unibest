@@ -17,7 +17,8 @@
 ## 🚤 快速使用
 
 ```shell
-pnpm create uni <项目名称> -t <模板名>
+pnpm create unibest <项目名称> # 默认用 base 模板
+pnpm create unibest <项目名称> -t <模板名>
 ```
 
 目前支持 `base`、`i18n`、`demo`三种模板。
