@@ -21,10 +21,17 @@ pnpm create unibest <项目名称> # 默认用 base 模板
 pnpm create unibest <项目名称> -t <模板名>
 ```
 
-目前支持 `base`、`i18n`、`demo`三种模板。
+`create unibest` 支持 `-t` 参数选择模板，目前已有 `6` 个模板，分别是 `base`、`demo`、`i18n`、`ucharts`、`hbx-base`、`hbx-demo`。
 
 ```sh
-pnpm create unibest my-unibest -t base # 基础模板
-pnpm create unibest my-unibest -t i18n # 多语言模板
-pnpm create unibest my-unibest -t demo # 所有demo的模板，还包含了i18n
+# VS Code 模板
+pnpm create unibest my-project # 默认用 base 模板
+pnpm create unibest my-project -t base # 基础模板
+pnpm create unibest my-project -t demo # 所有demo的模板(包括i18n)
+pnpm create unibest my-project -t i18n # 多语言模板
+pnpm create unibest my-project -t ucharts # 秋云图表模板
+
+# HBuilderX 模板，方便使用 uniCloud 云开发
+pnpm create unibest my-project -t hbx # hbx的base模板
+pnpm create unibest my-project -t hbx-demo # hbx的demo模板，包含所有的demo
 ```
