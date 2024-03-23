@@ -145,7 +145,7 @@ async function init() {
   if (result.templateType!.type !== 'custom') {
     const { templateType, projectName } = result
     await dowloadTemplate(templateType!, projectName!, root, loading)
-    printFinish(root, cwd, packageManager, loading)
+    printFinish(root, cwd, packageManager, loading, result.templateType!.type as any)
     return
   }
 
