@@ -40,10 +40,10 @@ export const templateList: TemplateList[] = [
     },
   },
   {
-    title: `hbx${green('(hbx版-base项目)')}`,
+    title: `hbx-base${green('(hbx版-base项目)')}`,
     description: `${red('(hbx的base项目)')}`,
     value: {
-      type: 'hbx',
+      type: 'hbx-base',
       branch: 'base',
       url: {
         gitee: 'https://gitee.com/codercup/unibest-hbx.git',
@@ -55,7 +55,7 @@ export const templateList: TemplateList[] = [
     title: `hbx-demo${green('(hbx版-demo项目)')}`,
     description: `${red('(hbx的demo项目)')}`,
     value: {
-      type: 'hbx',
+      type: 'hbx-demo',
       branch: 'demo',
       url: {
         gitee: 'https://gitee.com/codercup/unibest-hbx.git',

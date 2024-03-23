@@ -32,6 +32,6 @@ pnpm create unibest my-project -t i18n # 多语言模板
 pnpm create unibest my-project -t ucharts # 秋云图表模板
 
 # HBuilderX 模板，方便使用 uniCloud 云开发
-pnpm create unibest my-project -t hbx # hbx的base模板
+pnpm create unibest my-project -t hbx-base # hbx的base模板
 pnpm create unibest my-project -t hbx-demo # hbx的demo模板，包含所有的demo
 ```
