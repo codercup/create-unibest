@@ -16,6 +16,42 @@ export const templateList: TemplateList[] = [
     },
   },
   {
+    title: `js${green('(非ts版本)')}`,
+    description: `${red('(多TAB base + js项目)')}`,
+    value: {
+      type: 'js',
+      branch: 'js',
+      url: {
+        gitee: 'https://gitee.com/codercup/unibest.git',
+        github: 'https://github.com/codercup/unibest.git',
+      },
+    },
+  },
+  {
+    title: `ucharts${green('(图表库)')}`,
+    description: `${red('(多TAB base + ucharts项目)')}`,
+    value: {
+      type: 'js',
+      branch: 'js',
+      url: {
+        gitee: 'https://gitee.com/codercup/unibest.git',
+        github: 'https://github.com/codercup/unibest.git',
+      },
+    },
+  },
+  {
+    title: `tabbar${green('(自定义tabbar)')}`,
+    description: `${red('(多TAB base + tabbar项目)')}`,
+    value: {
+      type: 'js',
+      branch: 'js',
+      url: {
+        gitee: 'https://gitee.com/codercup/unibest.git',
+        github: 'https://github.com/codercup/unibest.git',
+      },
+    },
+  },
+  {
     title: `demo${green('(演示项目)')}`,
     description: `${red('(多TAB演示项目)')}`,
     value: {
