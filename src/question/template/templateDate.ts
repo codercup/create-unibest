@@ -43,8 +43,8 @@ export const templateList: TemplateList[] = [
     title: `ucharts${green('(图表库)')}`,
     description: `${red('(多TAB base + ucharts项目)')}`,
     value: {
-      type: 'js',
-      branch: 'js',
+      type: 'ucharts',
+      branch: 'ucharts',
       url: {
         gitee: 'https://gitee.com/codercup/unibest.git',
         github: 'https://github.com/codercup/unibest.git',
@@ -55,8 +55,8 @@ export const templateList: TemplateList[] = [
     title: `tabbar${green('(自定义tabbar)')}`,
     description: `${red('(多TAB base + tabbar项目)')}`,
     value: {
-      type: 'js',
-      branch: 'js',
+      type: 'tabbar',
+      branch: 'tabbar',
       url: {
         gitee: 'https://gitee.com/codercup/unibest.git',
         github: 'https://github.com/codercup/unibest.git',
