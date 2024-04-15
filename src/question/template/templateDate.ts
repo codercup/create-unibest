@@ -8,13 +8,25 @@ export const templateList: TemplateList[] = [
     description: `${red('(多TAB base项目)')}`,
     value: {
       type: 'base',
-      branch: 'main',
+      branch: 'base',
       url: {
-        gitee: 'https://gitee.com/codercup/unibest-base.git',
-        github: 'https://github.com/codercup/unibest-base.git',
+        gitee: 'https://gitee.com/codercup/unibest.git',
+        github: 'https://github.com/codercup/unibest.git',
       },
     },
   },
+  // {
+  //   title: `base${green('(推荐)')}`,
+  //   description: `${red('(多TAB base项目)')}`,
+  //   value: {
+  //     type: 'base',
+  //     branch: 'main',
+  //     url: {
+  //       gitee: 'https://gitee.com/codercup/unibest-base.git',
+  //       github: 'https://github.com/codercup/unibest-base.git',
+  //     },
+  //   },
+  // },
   {
     title: `js${green('(非ts版本)')}`,
     description: `${red('(多TAB base + js项目)')}`,
