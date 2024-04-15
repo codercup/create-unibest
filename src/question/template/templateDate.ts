@@ -7,7 +7,7 @@ export const templateList: TemplateList[] = [
     title: `base${green('(推荐)')}`,
     description: `${red('(多TAB base项目)')}`,
     value: {
-      type: 'main',
+      type: 'base',
       branch: 'main',
       url: {
         gitee: 'https://gitee.com/codercup/unibest-base.git',
