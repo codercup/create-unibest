@@ -1,9 +1,10 @@
 import process from 'node:process'
 import { lightCyan } from 'kolorist'
+import { version } from '../../package.json'
 
 /* eslint-disable no-console */
 export function printBanner() {
-  const text = 'Unibest-creator - 快速创建 unibest(uni-app) 项目'
+  const text = `create-unibest@v${version} 快速创建 unibest 项目`
   let colorText = ''
 
   const startColor = { r: 0x3B, g: 0xD1, b: 0x91 }

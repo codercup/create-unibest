@@ -6,6 +6,6 @@ await build({
   outfile: 'outfile.cjs',
   format: 'cjs',
   platform: 'node',
-  target: 'node14',
+  target: 'node18',
   minify: true,
 })
