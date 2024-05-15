@@ -15,42 +15,7 @@ export const templateList: TemplateList[] = [
       },
     },
   },
-  // {
-  //   title: `base${green('(推荐)')}`,
-  //   description: `${red('(多TAB base项目)')}`,
-  //   value: {
-  //     type: 'base',
-  //     branch: 'main',
-  //     url: {
-  //       gitee: 'https://gitee.com/codercup/unibest-base.git',
-  //       github: 'https://github.com/codercup/unibest-base.git',
-  //     },
-  //   },
-  // },
-  {
-    title: `js${green('(非ts版本)')}`,
-    description: `${red('(多TAB base + js项目)')}`,
-    value: {
-      type: 'js',
-      branch: 'js',
-      url: {
-        gitee: 'https://gitee.com/codercup/unibest.git',
-        github: 'https://github.com/codercup/unibest.git',
-      },
-    },
-  },
-  {
-    title: `ucharts${green('(图表库)')}`,
-    description: `${red('(多TAB base + ucharts项目)')}`,
-    value: {
-      type: 'ucharts',
-      branch: 'ucharts',
-      url: {
-        gitee: 'https://gitee.com/codercup/unibest.git',
-        github: 'https://github.com/codercup/unibest.git',
-      },
-    },
-  },
+
   {
     title: `tabbar${green('(自定义tabbar)')}`,
     description: `${red('(多TAB base + tabbar项目)')}`,
@@ -70,8 +35,8 @@ export const templateList: TemplateList[] = [
       type: 'demo',
       branch: 'demo',
       url: {
-        gitee: 'https://gitee.com/codercup/unibest.git',
-        github: 'https://github.com/codercup/unibest.git',
+        gitee: 'https://gitee.com/codercup/hello-unibest.git',
+        github: 'https://github.com/codercup/hello-unibest.git',
       },
     },
   },
@@ -81,6 +46,18 @@ export const templateList: TemplateList[] = [
     value: {
       type: 'i18n',
       branch: 'i18n',
+      url: {
+        gitee: 'https://gitee.com/codercup/unibest.git',
+        github: 'https://github.com/codercup/unibest.git',
+      },
+    },
+  },
+  {
+    title: `js${green('(非ts版本)')}`,
+    description: `${red('(多TAB base + js项目)')}`,
+    value: {
+      type: 'js',
+      branch: 'js',
       url: {
         gitee: 'https://gitee.com/codercup/unibest.git',
         github: 'https://github.com/codercup/unibest.git',
