@@ -33,7 +33,7 @@ export const templateList: TemplateList[] = [
     description: `${red('(多TAB演示项目)')}`,
     value: {
       type: 'demo',
-      branch: 'demo',
+      branch: 'main',
       url: {
         gitee: 'https://gitee.com/codercup/hello-unibest.git',
         github: 'https://github.com/codercup/hello-unibest.git',
