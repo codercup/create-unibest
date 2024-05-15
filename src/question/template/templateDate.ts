@@ -65,6 +65,18 @@ export const templateList: TemplateList[] = [
     },
   },
   {
+    title: `ucharts${green('(图表库)')}`,
+    description: `${red('(多TAB base + ucharts项目)')}`,
+    value: {
+      type: 'ucharts',
+      branch: 'ucharts',
+      url: {
+        gitee: 'https://gitee.com/codercup/unibest.git',
+        github: 'https://github.com/codercup/unibest.git',
+      },
+    },
+  },
+  {
     title: `hbx-base${green('(hbx版-base项目)')}`,
     description: `${red('(hbx的base项目)')}`,
     value: {
