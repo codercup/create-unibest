@@ -1,7 +1,7 @@
 {
   "name": "create-unibest",
   "type": "module",
-  "version": "1.11.0",
+  "version": "1.12.0",
   "packageManager": "pnpm@8.15.1",
   "description": "An easy way to start a unibest project",
   "author": "菲鸽 <1020103647@qq.com>",
