@@ -71,8 +71,8 @@ export const templateList: TemplateList[] = [
       type: 'hbx-base',
       branch: 'base',
       url: {
-        gitee: 'https://gitee.com/codercup/unibest-hbx.git',
-        github: 'https://github.com/codercup/unibest-hbx.git',
+        gitee: 'https://gitee.com/uni-run/unibest-hbx.git',
+        github: 'https://github.com/uni-run/unibest-hbx.git',
       },
     },
   },
@@ -83,8 +83,8 @@ export const templateList: TemplateList[] = [
       type: 'hbx-demo',
       branch: 'main',
       url: {
-        gitee: 'https://gitee.com/codercup/unibest-hbx.git',
-        github: 'https://github.com/codercup/unibest-hbx.git',
+        gitee: 'https://gitee.com/uni-run/unibest-hbx.git',
+        github: 'https://github.com/uni-run/unibest-hbx.git',
       },
     },
   },
